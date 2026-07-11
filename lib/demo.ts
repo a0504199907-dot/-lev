@@ -107,9 +107,28 @@ function seed(): DemoDB {
   return { slots, bookings, archives };
 }
 
+// גיבוי בזיכרון כשה-localStorage חסום (מצב פרטי / iframe מוגבל)
+let memoryDB: DemoDB | null = null;
+
+function readStorage(): string | null {
+  try {
+    return window.localStorage.getItem(KEY);
+  } catch {
+    return null;
+  }
+}
+
+function writeStorage(value: string) {
+  try {
+    window.localStorage.setItem(KEY, value);
+  } catch {
+    /* אחסון חסום — נסתפק בזיכרון */
+  }
+}
+
 function load(): DemoDB {
   if (typeof window === "undefined") return seed();
-  const raw = window.localStorage.getItem(KEY);
+  const raw = readStorage();
   if (raw) {
     try {
       return JSON.parse(raw) as DemoDB;
@@ -117,14 +136,17 @@ function load(): DemoDB {
       /* נתונים פגומים — נאתחל מחדש */
     }
   }
+  if (memoryDB) return memoryDB;
   const db = seed();
-  window.localStorage.setItem(KEY, JSON.stringify(db));
+  memoryDB = db;
+  writeStorage(JSON.stringify(db));
   return db;
 }
 
 function save(db: DemoDB) {
+  memoryDB = db;
   if (typeof window !== "undefined") {
-    window.localStorage.setItem(KEY, JSON.stringify(db));
+    writeStorage(JSON.stringify(db));
   }
 }
 
