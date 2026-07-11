@@ -23,9 +23,14 @@ export function Footer() {
             ניווט מהיר
           </h3>
           <ul className="mt-4 space-y-2.5 text-sm">
-            <li><a href="#board" className="transition-colors hover:text-coral">הלוח החי ושריון משבצות</a></li>
-            <li><a href="#how" className="transition-colors hover:text-coral">איך זה עובד</a></li>
-            <li><a href="#archive" className="transition-colors hover:text-coral">ארכיון מהדורות</a></li>
+            <li>
+              <Link href="/board" className="transition-colors hover:text-coral">
+                הלוח החי ושריון משבצות
+              </Link>
+            </li>
+            <li><a href="/#how" className="transition-colors hover:text-coral">איך זה עובד</a></li>
+            <li><a href="/#packages" className="transition-colors hover:text-coral">גדלים ומחירים</a></li>
+            <li><a href="/#archive" className="transition-colors hover:text-coral">ארכיון מהדורות</a></li>
             <li>
               <Link href="/admin" className="transition-colors hover:text-coral">
                 כניסת מנהל

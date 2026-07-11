@@ -5,10 +5,11 @@ import { LayoutGrid } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const NAV = [
-  { href: "#board", label: "הלוח החי" },
-  { href: "#how", label: "איך זה עובד" },
-  { href: "#archive", label: "מהדורות קודמות" },
-  { href: "#contact", label: "יצירת קשר" },
+  { href: "/board", label: "הלוח החי", isPage: true },
+  { href: "/#how", label: "איך זה עובד" },
+  { href: "/#packages", label: "גדלים ומחירים" },
+  { href: "/#archive", label: "מהדורות קודמות" },
+  { href: "/#contact", label: "יצירת קשר" },
 ];
 
 export function Header() {
@@ -30,22 +31,32 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex">
-          {NAV.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-slate-300 transition-colors hover:text-coral"
-            >
-              {item.label}
-            </a>
-          ))}
+          {NAV.map((item) =>
+            item.isPage ? (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-sm font-medium text-slate-300 transition-colors hover:text-coral"
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-sm font-medium text-slate-300 transition-colors hover:text-coral"
+              >
+                {item.label}
+              </a>
+            )
+          )}
         </nav>
 
-        <a href="#board">
+        <Link href="/board">
           <Button size="sm" className="h-9 px-4 sm:px-5">
             שריין מקום
           </Button>
-        </a>
+        </Link>
       </div>
     </header>
   );
