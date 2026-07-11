@@ -26,6 +26,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['"Heebo Variable"', "Heebo", "system-ui", "sans-serif"],
+        display: ["Karantina", '"Heebo Variable"', "system-ui", "sans-serif"],
       },
       keyframes: {
         "fade-up": {
@@ -44,12 +45,23 @@ const config: Config = {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(50%)" },
         },
+        "slot-pop": {
+          "0%": { opacity: "0", transform: "scale(0.6)" },
+          "70%": { transform: "scale(1.06)" },
+          "100%": { opacity: "1", transform: "scale(1)" },
+        },
+        "float-y": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
       },
       animation: {
         "fade-up": "fade-up 0.6s ease-out both",
         "fade-in": "fade-in 0.4s ease-out both",
         "pop-in": "pop-in 0.25s ease-out both",
         marquee: "marquee 45s linear infinite",
+        "slot-pop": "slot-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both",
+        "float-y": "float-y 5s ease-in-out infinite",
       },
     },
   },

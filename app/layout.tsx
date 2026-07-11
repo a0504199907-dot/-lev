@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/heebo";
+import "@fontsource/karantina/400.css";
+import "@fontsource/karantina/700.css";
 import "./globals.css";
 
 export const metadata: Metadata = {

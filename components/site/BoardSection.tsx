@@ -163,13 +163,9 @@ export function BoardSection() {
     <section id="board" className="bg-charcoal py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="text-center">
-          <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
-            הלוח החי — בחרו את המשבצת שלכם
-          </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-slate-400">
-            כך נראה לוח המודעות הפיזי שנתלה השבוע. לחצו על משבצת פנויה, העלו את
-            הגרפיקה שלכם — ותראו בזמן אמת בדיוק איך המודעה שלכם תיראה לצד שאר
-            המפרסמים.
+          <p className="mx-auto max-w-2xl text-slate-400">
+            לחצו על משבצת פנויה, העלו את הגרפיקה שלכם — ותראו בזמן אמת בדיוק
+            איך המודעה שלכם תיראה על הלוח לצד שאר המפרסמים.
           </p>
         </div>
 

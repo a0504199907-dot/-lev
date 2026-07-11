@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@fontsource-variable/heebo": "^5.2.5",
+    "@fontsource/karantina": "^5.2.7",
     "@supabase/supabase-js": "^2.49.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
